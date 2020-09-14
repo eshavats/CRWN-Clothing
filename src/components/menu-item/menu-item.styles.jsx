@@ -17,7 +17,7 @@ export const MenuItemContainer = styled.div`
 
 		& .background-image {
 			transform: scale(1.1);
-			transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+			transition: transform 6s cubic-bezier(0.25, 0.65, 0.45, 0.95);
 		}
 
 		& .content {
