@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from "redux-saga/effects"; //listens for every action of a specific type
+import { takeLatest, call, put } from "redux-saga/effects";
 
 import ShopActionTypes from "./shop.types";
 import {
@@ -12,7 +12,8 @@ import {
 
 export function* fetchCollectionsAsync() {
   //all generator funcs must have yield in them
-
+  //takeEvery listens for every action of a specific type
+  
   try {
     const collectionRef = firestore.collection("collections");
     const snapshot = yield collectionRef.get();
@@ -27,7 +28,7 @@ export function* fetchCollectionsAsync() {
 }
 
 export function* fetchCollectionsStart() {
-  yield takeEvery(
+  yield takeLatest(
     ShopActionTypes.FETCH_COLLECTIONS_START,
     fetchCollectionsAsync
   );
